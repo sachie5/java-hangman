@@ -5,27 +5,39 @@ import java.util.Scanner;
 public class Interaction {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String[] commands = {"Enter 0 to end the game.","Enter 1 to start the game.", "Guess a missing letter."};
+    private static final String[] commands = {"Enter 0 to end the game.", "Enter 1 to start the game.", "Guess a missing letter.", "Press 3 to Exit" , "Press 4 to start a new game."};
+    private static int lives = 8;
 
-    public static void welcomeMessage(){
+    public static int getLives() {
+        return lives;
+    }
+
+    public static void setLives() {
+        lives = 8;
+    }
+
+    public static int reduceLives() {
+        return lives--;
+    }
+
+    public static void welcomeMessage() {
         System.out.println("Welcome to Hangman. " + commands[0] + " " + commands[1]);
     }
 
-    public static void startGame(){
-        System.out.println(commands[2]);
+    public static void startGame() {
+        System.out.println(commands[2] + " Current lives: " + lives);
     }
 
-    public static int getIntegerInput(){
+    public static int getIntegerInput() {
         return scanner.nextInt(commands.length);
     }
 
-
-//    public static char getLetter(){
-//        return scanner.
-//    }
-    public static String nextLetter(){
-        return scanner.nextLine();
+    public static char nextLetter() {
+        return scanner.next().charAt(0);
     }
 
+    public static void endGame() {
+        System.out.println(commands[3] + " " + commands[4]);
+    }
 
 }
