@@ -18,7 +18,7 @@ public class Main {
 
         Words words = new Words();
         Interaction interaction = new Interaction();
-        final String chosenWord = words.wordSelector();
+        final String chosenWord = words.wordSelector().toLowerCase();
         StringBuilder shownWord =  new StringBuilder(chosenWord.replaceAll("[a-zA-Z]", "_"));
         int lives = Interaction.getLives();
         List<Character> guesses = new ArrayList<>();
@@ -41,13 +41,14 @@ public class Main {
 
         while (shownWord.indexOf("_") != -1 && lives > 0){
             char userLetter = interaction.nextLetter();
+            userLetter = Character.toLowerCase(userLetter);
 
-            if(!guesses.contains(userLetter)){
+            if(!guesses.contains(userLetter) && Character.isAlphabetic(userLetter)){
                 guesses.add(userLetter);
                 if (chosenWord.indexOf(userLetter) != -1) {
                     for (int i = 0; i < chosenWord.length(); i++) {
                         if(chosenWord.charAt(i) == userLetter) {
-                            shownWord = shownWord.replace(i, i+1, String.valueOf(userLetter));
+                            shownWord = shownWord.replace(i, i+1, String.valueOf((userLetter)));
                         }
                     }
                     System.out.println(shownWord);
@@ -57,8 +58,10 @@ public class Main {
                     lives = Interaction.getLives();
                     System.out.println("Try again. Current lives: " + lives + ". Guesses: " + guesses);
                 }
-            } else {
+            } else if (guesses.contains(userLetter)){
                 System.out.println("Please choose a letter that hasn't be previously chosen.");
+            } else if (!Character.isAlphabetic(userLetter)){
+                System.out.println("Please enter a letter in the alphabet.");
             }
         }
 

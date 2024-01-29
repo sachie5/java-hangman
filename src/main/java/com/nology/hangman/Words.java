@@ -26,7 +26,7 @@ public class Words {
         words.add("receipt");
     }
 
-    public static String wordSelector(){
+    public String wordSelector(){
         Random random = new Random();
         return words.get(random.nextInt(words.size()));
     }
