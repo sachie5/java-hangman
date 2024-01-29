@@ -1,6 +1,7 @@
 package com.nology;
 
 import com.nology.hangman.Interaction;
+import com.nology.hangman.LevelOne;
 import com.nology.hangman.Words;
 
 
@@ -16,7 +17,7 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
 
-        Words words = new Words();
+        Words words = new LevelOne();
         Interaction interaction = new Interaction();
         final String chosenWord = words.wordSelector().toLowerCase();
         StringBuilder shownWord =  new StringBuilder(chosenWord.replaceAll("[a-zA-Z]", "_"));
