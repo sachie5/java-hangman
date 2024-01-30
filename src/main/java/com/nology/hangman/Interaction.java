@@ -4,19 +4,20 @@ import java.util.Scanner;
 
 public class Interaction {
 
-    private Scanner scanner = new Scanner(System.in);
+    private  Scanner scanner = new Scanner(System.in);
     private static final String[] commands = {"Enter 0 to end the game.", "Enter 1 to start the game.", "Guess a missing letter.", "Press 3 to Exit" , "Press 4 to start a new game."};
-    private static int lives = 8;
+    private int lives;
 
-    public static int getLives() {
+
+    public  int getLives() {
         return lives;
     }
 
-    public static void setLives() {
-        lives = 8;
+    public void setLives() {
+        this.lives = lives;
     }
 
-    public static int reduceLives() {
+    public  int reduceLives() {
         return lives--;
     }
 
@@ -24,20 +25,31 @@ public class Interaction {
         System.out.println("Welcome to Hangman. " + commands[0] + " " + commands[1]);
     }
 
-    public static void startGame() {
+    public void chooseLevel(){
+        System.out.println("Choose a level: 1, 2, 3 or 4");
+    }
+
+    public  void startGame() {
         System.out.println(commands[2] + " Current lives: " + lives);
     }
 
-    public int getIntegerInput() {
-        return scanner.nextInt(commands.length);
+    public int amountOfLives(int lives){
+        return this.lives = lives;
+    }
+    public int getUserInput() {
+        return scanner.nextInt();
     }
 
     public char nextLetter() {
         return scanner.next().charAt(0);
     }
 
-    public static void endGame() {
+    public void endGame() {
         System.out.println(commands[3] + " " + commands[4]);
+    }
+
+    public void exitGame(){
+        System.exit(0);
     }
 
 }
