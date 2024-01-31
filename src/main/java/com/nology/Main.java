@@ -23,13 +23,17 @@ public class Main {
                 interaction.welcomeMessage();
                 userInput = interaction.getUserInput();
 
-                    if (userInput == 0) {
+                    switch (userInput) {
+                        case 0:
                         System.out.println("Thanks for playing");
                         System.exit(0);
-                    } else if (userInput == 1) {
+                        break;
+                        case 1:
                         interaction.chooseLevel();
-                    } else {
+                        break;
+                        default:
                         System.out.println("That is not a valid option.");
+                        break;
                     }
 
                 userInput = interaction.getUserInput();
@@ -48,7 +52,6 @@ public class Main {
                     lives = interaction.amountOfLives(5);
                 } else {
                     System.out.println("Please enter a valid number.");
-                    interaction.chooseLevel();
                 }
 
                 final String chosenWord = words.wordSelector().toLowerCase();
