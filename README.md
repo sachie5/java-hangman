@@ -5,10 +5,10 @@ In this project, we were required to create a hangman game using Java.
 ## Classes
 
 The project consists of the following Classes:
-** Interaction - where game commands and user interaction methods lie.
-** Words - abstract class for words in the game.
-** LevelOne - Level One Words that inherit from words.
-** LevelTwo - Level Two Words that inherit from words.
+* Interaction - where game commands and user interaction methods lie.
+* Words - abstract class for words in the game.
+* LevelOne - Level One Words that inherit from words.
+* LevelTwo - Level Two Words that inherit from words.
 
 ## Key Functionality
 
