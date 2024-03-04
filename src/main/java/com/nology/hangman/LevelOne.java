@@ -11,11 +11,6 @@ public class LevelOne extends Words {
     private final List<String> levelOneList = Arrays.asList(oneWords);
     private final Random random = new Random();
 
-
-    public void LevelOneWords() {
-        setWords();
-    }
-
     @Override
     public String wordSelector() {
         return levelOneList.get(random.nextInt(levelOneList.size()));

@@ -9,10 +9,6 @@ public class LevelTwo extends Words {
             "youthful", "flapjack", "keyhole", "strength"};
     private final List<String> levelTwoList = Arrays.asList(twoWords);
     private final Random random = new Random();
-    public void LevelTwoWords() {
-       setWords();
-    }
-
     @Override
     public String wordSelector() {
         return levelTwoList.get(random.nextInt(levelTwoList.size()));
